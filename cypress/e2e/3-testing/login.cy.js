@@ -1,3 +1,6 @@
+import { password } from "../../../cypress.env";
+import { email } from "../../../cypress.env";
+
 describe("User login", () => {
   it("Successfully logs in a user so they can access their profile", () => {
     cy.clearCookies();

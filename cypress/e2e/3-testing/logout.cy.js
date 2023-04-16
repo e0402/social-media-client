@@ -1,3 +1,6 @@
+import { password } from "../../../cypress.env";
+import { email } from "../../../cypress.env";
+
 describe("User logout", () => {
   it("Successfully logs out a user so they can access their profile", () => {
     cy.clearLocalStorage();
