@@ -1,8 +1,8 @@
-import { password } from "../../../cypress.env";
-import { email } from "../../../cypress.env";
-
 describe("User login", () => {
   it("Successfully logs in a user so they can access their profile", () => {
+    const email = "example@example.com";
+    const password = "password123";
+
     cy.clearCookies();
     cy.clearLocalStorage();
     cy.visit("/");
@@ -11,8 +11,8 @@ describe("User login", () => {
     cy.get(".btn-outline-success:visible").contains("Login").click();
     cy.wait(500);
 
-    cy.get("#loginEmail").type(Cypress.env("email"));
-    cy.get("#loginPassword").type(Cypress.env("password"), { delay: 500 });
+    cy.get("#loginEmail").type(email);
+    cy.get("#loginPassword").type(password, { delay: 500 });
     cy.get(".btn-success").contains("Login").click();
   });
 });

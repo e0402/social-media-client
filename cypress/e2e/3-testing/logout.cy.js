@@ -1,15 +1,15 @@
-import { password } from "../../../cypress.env";
-import { email } from "../../../cypress.env";
-
 describe("User logout", () => {
   it("Successfully logs out a user so they can access their profile", () => {
+    const email = "example@example.com";
+    const password = "password123";
+
     cy.clearLocalStorage();
     cy.visit("/");
     cy.wait(500);
 
     cy.contains("Login").click();
-    cy.get("#loginEmail").type(Cypress.env("email"));
-    cy.get("#loginPassword").type(Cypress.env("password"));
+    cy.get("#loginEmail").type(email);
+    cy.get("#loginPassword").type(password);
     cy.contains("Login").click();
     cy.wait(2000);
 
